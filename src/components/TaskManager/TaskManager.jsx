@@ -16,10 +16,16 @@ export default function TaskManager () {
         setTasks(prev => prev.filter(task => task.id !== id));
     };
 
+    const updateTask = (id, newText) => {
+        setTasks(prev => prev.map(task => 
+            task.id === id ? { ...task, text: newText } : task
+        ));
+    };
+
     return <div className={style.section}>
         <h2 className={style.section__title}>Task Manager</h2>
         <TaskAddFrom onAdd={addTask}></TaskAddFrom>
-        <List list={tasks} onRemove={removeTask}></List>
+        <List list={tasks} onRemove={removeTask} onUpdate={updateTask}></List>
     </div>
 
 }  

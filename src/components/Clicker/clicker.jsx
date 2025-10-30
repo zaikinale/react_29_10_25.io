@@ -19,9 +19,9 @@ export default function Clicker () {
     }
 
 
-    return <div className="style.counter">
+    return <div className={style.counter}>
         <h3 className={style.counter__title}>{count}</h3>
-        <input type="number" value={value} onChange={handleInput} />
+        <input className={style.counter__input} type="number" value={value} onChange={handleInput} />
         <button onClick={handleClick('add')} className={style.counter__add}>count +</button>
         <button onClick={handleClick('reduce')} className={style.counter__reduce}>count -</button>
     </div>
