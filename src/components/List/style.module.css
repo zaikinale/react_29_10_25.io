@@ -1,0 +1,26 @@
+
+
+.list {
+    box-sizing: border-box;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+}
+
+.list_item {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.list_delete {
+    margin: 10px;
+    padding: 5px;
+    background-color: red;
+    color: white;
+}

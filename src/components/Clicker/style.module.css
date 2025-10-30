@@ -1,0 +1,24 @@
+
+.counter {
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.counter__title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.counter__add, .counter__reduce {
+    color: white;
+    padding: 5px 10px;
+    background-color: green;
+}
+
+.counter__reduce {
+    background-color: red;
+}

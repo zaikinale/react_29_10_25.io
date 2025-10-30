@@ -4,6 +4,8 @@
 import './App.css'
 import Greeting from './components/Greeting/index.jsx'
 import Header from './components/Header/index.jsx'
+import Clicker from './components/Clicker/clicker.jsx'
+import TaskManager from './components/TaskManager/TaskManager.jsx'
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -32,11 +34,14 @@ function App() {
   //     </p>
   //   </>
   // )
+
   return (
     <>
       <Header></Header>
       <div>App</div>
+      <Clicker></Clicker>
       <Greeting></Greeting>
+      <TaskManager></TaskManager>
     </>
   )
 }
