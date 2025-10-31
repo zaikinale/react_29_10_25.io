@@ -26,6 +26,7 @@ export default function TaskAddFrom({ onAdd }) {
             <button type="submit" className={style.form__button}>
                 Добавить
             </button>
+            <input type="che" />
         </form>
     );
 }

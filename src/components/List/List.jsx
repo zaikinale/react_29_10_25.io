@@ -1,14 +1,15 @@
 import {useState} from 'react'
 import style from './style.module.css'
 
-const Item = ({ item, onRemove, onUpdate }) => {
+const Item = ({ item, onRemove, onUpdate, onToggleComplete  }) => {
     const [isEditing, setIsEditing] = useState(false)
     const [editText, setEditText] = useState(item.text)
 
     const renderData = () => {
         return <>
             <span>{item.text}</span>
-            <button className={style.list_delete} onClick={() => onRemove(item.id)}>Удалить</button>
+            <button className={style.list__delete } onClick={() => onRemove(item.id)}>Удалить</button>
+            <button className={style.list__completed } onClick={() => onToggleComplete(item.id)}>{ item.status === 'active' ? 'Выполнено' : 'Отменить'}</button>
         </>
     }
 
@@ -35,21 +36,29 @@ const Item = ({ item, onRemove, onUpdate }) => {
         setIsEditing(!isEditing)
     }
 
+    let itemClass = style.list__item;
+    if (item.status === 'completed') {
+        itemClass += ` ${style['list__item--completed']}`;
+    } else if (item.status === 'overdue') {
+        itemClass += ` ${style['list__item--overdue']}`;
+    }
+
     return(
-        <li className={style.list__item} key={item.id}>
+        <li className={ itemClass } key={item.id}>
             {isEditing ? renderEditor() : renderData()}
             <button className={style.list__fix} onClick={modeSwitching}>
-                {isEditing ? 'Save' : 'Edit'}
+                {isEditing ? 'Сохранить' : 'Изменить'}
             </button>
+            {/* <button onClick={() => onCompleted(item.id)}>{ item.status === 'active' ? 'Выполнено' : 'Отменить'}</button> */}
         </li>
     )
 }
 
-export default function List({ list, onRemove, onUpdate }) {
+export default function List({ list, onRemove, onUpdate, onToggleComplete }) {
     return (
         <ul className={style.list}>
             {list.map((item) => (
-                <Item key={item.id} item={item} onRemove={onRemove} onUpdate={onUpdate} />
+                <Item key={item.id} item={item} onRemove={onRemove} onUpdate={onUpdate} onToggleComplete={onToggleComplete} />
             ))}
         </ul>
     )
