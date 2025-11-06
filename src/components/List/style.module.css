@@ -30,7 +30,12 @@
 }
 
 .list__item--overdue {
-    
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 10px 20px;
+    background-color: #ff0404;
 }
 
 .list__fix {
@@ -51,4 +56,28 @@
     margin: 10px;
     padding: 5px;
     background-color: gray;
+}
+
+.item__meta {
+    font-size: 0.85rem;
+    color: #666;
+    margin: 4px 0;
+}
+
+.list__item--overdue {
+    background-color: #f44336;
+    /* border-left: 4px solid #f44336; */
+}
+
+.list__item--completed {
+    opacity: 0.6;
+    text-decoration: line-through;
+}
+
+.editor__input {
+    display: block;
+    margin: 4px 0;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
