@@ -9,18 +9,18 @@ const Item = ({ item, onRemove, onUpdate, onToggleComplete }) => {
 
     const renderData = () => {
         const deadlineStr = item.deadline 
-            ? `Дедлайн: ${new Date(item.deadline).toLocaleDateString('ru-RU')}` 
+            ? `Deadline: ${new Date(item.deadline).toLocaleDateString('ru-RU')}` 
             : '';
-        const tagsStr = item.tags?.length ? `Теги: ${item.tags.join(', ')}` : '';
+        const tagsStr = item.tags?.length ? `Tags: ${item.tags.join(', ')}` : '';
     
         return (
             <>
-                <span>{item.text}</span>
                 {(deadlineStr || tagsStr) && (
                     <div className={style.item__meta}>
-                        {deadlineStr} {tagsStr && ` ${tagsStr}`}
+                        {deadlineStr} <br/> {tagsStr && ` ${tagsStr}`}
                     </div>
                 )}
+                <span>{item.text}</span><br/>
                 <button className={style.list__delete} onClick={() => onRemove(item.id)}>
                     Удалить
                 </button>

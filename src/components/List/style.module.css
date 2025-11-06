@@ -4,7 +4,8 @@
     box-sizing: border-box;
     padding: 20px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 20px;
     list-style-type: none;
     margin: 0;
@@ -66,7 +67,6 @@
 
 .list__item--overdue {
     background-color: #f44336;
-    /* border-left: 4px solid #f44336; */
 }
 
 .list__item--completed {

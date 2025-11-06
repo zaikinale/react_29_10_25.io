@@ -23,6 +23,7 @@ export default function TaskAddFrom({ onAdd }) {
     return (
         <form className={style.form} onSubmit={handleSubmit}>
             <h3 className={style.form__title}>Добавь задачу</h3>
+
             <input
                 type="text"
                 className={style.form__input}
@@ -42,7 +43,7 @@ export default function TaskAddFrom({ onAdd }) {
                 className={style.form__input}
                 value={tagsInput}
                 onChange={(e) => setTagsInput(e.target.value)}
-                placeholder="Теги (через запятую, например: работа, срочно)"
+                placeholder='Теги через ","'
             />
             <button type="submit" className={style.form__button}>
                 Добавить
