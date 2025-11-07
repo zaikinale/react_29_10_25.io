@@ -22,7 +22,7 @@ export default function TaskAddFrom({ onAdd }) {
 
     return (
         <form className={style.form} onSubmit={handleSubmit}>
-            <h3 className={style.form__title}>Добавь задачу</h3>
+            {/* <h3 className={style.form__title}>Добавь задачу</h3> */}
 
             <input
                 type="text"
