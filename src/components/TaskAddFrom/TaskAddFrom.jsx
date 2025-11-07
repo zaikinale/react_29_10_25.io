@@ -1,28 +1,43 @@
 import { useState } from 'react';
 import style from './style.module.css';
 
-export default function TaskAddFrom({ onAdd }) {
+export default function TaskAddForm({ onAdd }) {
     const [text, setText] = useState('');
     const [deadline, setDeadline] = useState('');
     const [tagsInput, setTagsInput] = useState('');
+    const [error, setError] = useState('');
+
+    const today = new Date().toISOString().split('T')[0];
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (text.trim()) {
-            const tags = tagsInput
-                .split('#')
-                .map(tag => tag.trim())
-                .filter(tag => tag !== '');
-            onAdd(text, deadline || null, tags);
-            setText('');
-            setDeadline('');
-            setTagsInput('');
+        setError('');
+
+        if (!text.trim()) {
+            setError('Введите текст задачи');
+            return;
         }
+
+        if (deadline && deadline < today) {
+            setError('Дедлайн не может быть установлен на прошедшую дату');
+            return;
+        }
+
+        const tags = tagsInput
+            .split('#')
+            .map(tag => tag.trim())
+            .filter(tag => tag !== '');
+
+        onAdd(text, deadline || null, tags);
+
+        setText('');
+        setDeadline('');
+        setTagsInput('');
     };
 
     return (
         <form className={style.form} onSubmit={handleSubmit}>
-            {/* <h3 className={style.form__title}>Добавь задачу</h3> */}
+            {error && <div className={style.form__error}>{error}</div>}
 
             <input
                 type="text"
@@ -36,6 +51,7 @@ export default function TaskAddFrom({ onAdd }) {
                 type="date"
                 className={style.form__input}
                 value={deadline}
+                min={today}
                 onChange={(e) => setDeadline(e.target.value)}
             />
             <input
