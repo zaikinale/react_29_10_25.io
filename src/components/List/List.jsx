@@ -21,12 +21,16 @@ const Item = ({ item, onRemove, onUpdate, onToggleComplete }) => {
                     </div>
                 )}
                 <span>{item.text}</span><br/>
-                <button className={style.list__delete} onClick={() => onRemove(item.id)}>
-                    Удалить
-                </button>
-                <button className={style.list__completed} onClick={() => onToggleComplete(item.id)}>
-                    {item.status === 'completed' ? 'Отменить' : 'Выполнено'}
-                </button>
+
+                <div className="btnControl">
+                    <button className={style.list__delete} onClick={() => onRemove(item.id)}>
+                        Удалить
+                    </button>
+                    <button className={style.list__completed} onClick={() => onToggleComplete(item.id)}>
+                        {item.status === 'completed' ? 'Отменить' : 'Выполнено'}
+                    </button>
+                </div>
+
             </>
         );
     };
