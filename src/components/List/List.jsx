@@ -35,7 +35,7 @@ const Item = ({ item, onRemove, onUpdate, onToggleComplete }) => {
 
     const renderData = () => {
         const deadlineStr = item.deadline 
-            ? `Deadline: ${new Date(item.deadline).toLocaleDateString('ru-RU')}` 
+            ? `${new Date(item.deadline).toLocaleDateString('ru-RU')}` 
             : '';
         const tagsStr = item.tags?.length ? `#${item.tags.join(' #')}` : '';
 

@@ -2,7 +2,7 @@
 
 .form {
     padding: 10px;
-    border: 2px solid gray;
+    /* border: 2px solid gray; */
     background-color: var(--bg);
     border-radius: 20px;
     align-items: center;

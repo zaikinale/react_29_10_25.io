@@ -31,7 +31,7 @@
 
 .logo__title {
     font-size: 18px;
-    color: black;
+    color: var(--text);
 
 }
 

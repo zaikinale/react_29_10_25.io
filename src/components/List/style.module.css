@@ -6,7 +6,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 5px;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -32,7 +32,7 @@
     font-weight: bold;
     font-size: 14px;
     padding: 10px 20px;
-    background-color: rgb(73, 214, 73);
+    background-color: rgb(124, 255, 124);
 }
 
 .list__item--overdue {
@@ -41,22 +41,25 @@
     font-weight: bold;
     font-size: 14px;
     padding: 10px 20px;
-    background-color: #ff0404;
+    background-color: #ff7a7a;
 }
 
 .list__fix {
+    border: 2px solid gray;
     padding: 3px;
     background-color: white;
     color: white;
 }
 
 .list__delete {
+    border: 2px solid gray;
     padding: 3px;
     background-color: white;
     color: white;
 }
 
 .list__completed {
+    border: 2px solid gray;
     padding: 3px;
     background-color: white;
 }
@@ -88,7 +91,7 @@
 }
 
 .btnControlImg {
-    max-height: 15px;
-    max-width: 15px;
+    max-height: 17px;
+    max-width: 17px;
     object-fit: contain;
 }

@@ -61,7 +61,7 @@ export default function TaskManager() {
         <div className={style.section}>
             {/* <h2 className={style.section__title}>Task Manager</h2> */}
             <TaskAddFrom onAdd={addTask}></TaskAddFrom>
-            <input type="text" placeholder="Поиск по названию / тегу..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className={style.search}></input>
+            <input type="text" placeholder="Поиск по названию/#..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className={style.search}></input>
             <List list={filteredTasks} onRemove={removeTask} onUpdate={updateTask} onToggleComplete={toggleComplete}></List>
         </div>
     );

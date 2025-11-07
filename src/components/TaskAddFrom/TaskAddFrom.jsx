@@ -10,7 +10,7 @@ export default function TaskAddFrom({ onAdd }) {
         e.preventDefault();
         if (text.trim()) {
             const tags = tagsInput
-                .split(',')
+                .split('#')
                 .map(tag => tag.trim())
                 .filter(tag => tag !== '');
             onAdd(text, deadline || null, tags);
@@ -43,7 +43,7 @@ export default function TaskAddFrom({ onAdd }) {
                 className={style.form__input}
                 value={tagsInput}
                 onChange={(e) => setTagsInput(e.target.value)}
-                placeholder='Теги через ","'
+                placeholder='Теги через #'
             />
             <button type="submit" className={style.form__button}>
                 Добавить
