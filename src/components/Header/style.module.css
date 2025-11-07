@@ -1,13 +1,13 @@
 
 .header {
     box-sizing: border-box;
-    padding: 10px 150px;
+    padding: 10px 10px;
     width: 100%;
     background-color: white;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-bottom: 40px;
     border-bottom: 2px solid gray;
 }
@@ -71,4 +71,10 @@
     transform: scale(1.2);
     /* font-weight: bold; */
     /* transition: 0.5s ease-in-out; */
+}
+
+@media (max-width: 860px) {
+    .navigation {
+        display: none;
+    }
 }
