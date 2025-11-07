@@ -8,7 +8,7 @@ export default function TaskManager() {
         const saved = localStorage.getItem('tasks');
         return saved 
             ? JSON.parse(saved) 
-            : [{ id: 1, text: 'Damir loh', status: 'active', deadline: null, tags: [] }];
+            : [];
     });
 
     const [searchQuery, setSearchQuery] = useState('');
@@ -59,7 +59,7 @@ export default function TaskManager() {
 
     return (
         <div className={style.section}>
-            <h2 className={style.section__title}>Task Manager</h2>
+            {/* <h2 className={style.section__title}>Task Manager</h2> */}
             <TaskAddFrom onAdd={addTask}></TaskAddFrom>
             <input type="text" placeholder="Поиск по названию / тегу..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className={style.search}></input>
             <List list={filteredTasks} onRemove={removeTask} onUpdate={updateTask} onToggleComplete={toggleComplete}></List>

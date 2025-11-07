@@ -10,6 +10,7 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
+    width: 80%;
 
 }
 
@@ -63,6 +64,10 @@
     font-size: 0.85rem;
     color: #666;
     margin: 4px 0;
+}
+
+.list__item {
+    border: 2px solid gray;
 }
 
 .list__item--overdue {

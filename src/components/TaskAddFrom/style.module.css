@@ -1,11 +1,11 @@
 
 
 .form {
-    padding: 30px;
+    padding: 10px;
+    border: 2px solid gray;
     background-color: var(--bg);
     border-radius: 20px;
     align-items: center;
-    /* width: 300px; */
     display: flex;
     flex-direction: row;
     gap: 20px;
