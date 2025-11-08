@@ -2,6 +2,9 @@ import style from './style.module.css';
 import LogoBlackIcon from './logo-black.jpg';
 import LogoWhiteIcon from './logo-white.jpeg';
 
+import DayModeIcon from '../../assets/day_mode.svg'
+import NightModeIcon from '../../assets/night_mode.svg'
+
 const Header = ({ darkMode, onToggleTheme }) => {
     return (
         <header className={`${style.header} ${darkMode ? style.header_dark : ''}`}>
@@ -25,7 +28,7 @@ const Header = ({ darkMode, onToggleTheme }) => {
                 onClick={onToggleTheme}
                 className={style.theme_btn}
             >
-                {darkMode ? 'День' : 'Ночь'}
+                <img className={style.theme__img} src={darkMode ? DayModeIcon : NightModeIcon} alt={darkMode ? 'Cветлая тема' : 'Темная тема'} />
             </button>
         </header>
     );

@@ -1,3 +1,9 @@
+
+@font-face {
+  font-family: 'NunitoSans';
+  src: url('./assets/fonts/NunitoSans-VariableFont_YTLC\,opsz\,wdth\,wght.ttf');
+}
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -14,6 +20,7 @@
 }
 
 body >* {
+  font-family: 'NunitoSans';
   margin: 0;
   padding: 0;
   box-sizing: border-box;

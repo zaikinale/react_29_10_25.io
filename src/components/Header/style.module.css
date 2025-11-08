@@ -35,6 +35,21 @@
 
 }
 
+.theme_btn {
+    background-color: gray;
+    padding: 5px;
+    width: 35px;
+    height: 35px;
+}
+
+.theme__img {
+    /* width: 20px;
+    height: 20px; */
+    max-width: 100%;
+    height: initial;
+    object-fit: contain;
+}
+
 .navigation {
     display: flex;
     flex-direction: row;
