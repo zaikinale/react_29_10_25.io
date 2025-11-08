@@ -1,31 +1,52 @@
-import { useState, useEffect } from "react"; // 🔥 добавлен useEffect
+import { useState, useEffect } from "react";
 import List from '../List/List.jsx';
 import TaskAddFrom from '../TaskAddFrom/TaskAddFrom.jsx';
 import style from './style.module.css';
+import RemoveIcon from '../../assets/remove.svg'
 
 export default function TaskManager() {
     const [tasks, setTasks] = useState(() => {
         const saved = localStorage.getItem('tasks');
-        return saved 
-            ? JSON.parse(saved) 
-            : [];
+        return saved ? JSON.parse(saved) : [];
     });
 
     const [searchQuery, setSearchQuery] = useState('');
-
-    const filteredTasks = tasks.filter(task =>
-        task.text.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        (task.tags && task.tags.some(tag =>
-            tag.toLowerCase().includes(searchQuery.toLowerCase())
-        ))
-    ); 
+    const [selectedTag, setSelectedTag] = useState(null);
 
     useEffect(() => {
         localStorage.setItem('tasks', JSON.stringify(tasks));
     }, [tasks]);
 
+    let displayedTasks;
+    if (selectedTag) {
+        displayedTasks = tasks.filter(task =>
+            task.tags && task.tags.includes(selectedTag)
+        );
+    } else {
+        displayedTasks = tasks.filter(task =>
+            task.text.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            (task.tags && task.tags.some(tag =>
+                tag.toLowerCase().includes(searchQuery.toLowerCase())
+            ))
+        );
+    }
+
+    const searchResultTags = !selectedTag
+        ? [...new Set(
+            tasks
+                .filter(task =>
+                    task.text.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                    (task.tags && task.tags.some(tag =>
+                        tag.toLowerCase().includes(searchQuery.toLowerCase())
+                    ))
+                )
+                .flatMap(task => task.tags || [])
+                .filter(tag => tag.trim() !== '')
+          )]
+        : [];
+
     const addTask = (text, deadline, tags) => {
-        const newId = tasks.length + 1 
+        const newId = tasks.length + 1;
         setTasks(prev => [...prev, {
             id: newId,
             text: text.trim(),
@@ -59,10 +80,53 @@ export default function TaskManager() {
 
     return (
         <div className={style.section}>
-            {/* <h2 className={style.section__title}>Task Manager</h2> */}
-            <TaskAddFrom onAdd={addTask}></TaskAddFrom>
-            <input type="text" placeholder="Поиск по названию/#..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className={style.search}></input>
-            <List list={filteredTasks} onRemove={removeTask} onUpdate={updateTask} onToggleComplete={toggleComplete}></List>
+            <TaskAddFrom onAdd={addTask} />
+            <input
+                type="text"
+                placeholder="Поиск по названию/тегу..."
+                value={searchQuery}
+                onChange={(e) => {
+                    setSearchQuery(e.target.value);
+                    setSelectedTag(null);
+                }}
+                className={style.search}
+            /> 
+
+            {selectedTag && (
+                <div className={style.activeTag}>
+                    <button
+                        className={`${style.tagButton} ${style.tagButtonActive}`}
+                        onClick={() => setSelectedTag(null)}
+                    >
+                        #{selectedTag}
+                        <img className={style.searchDelete} src={RemoveIcon} alt='Удалить' />
+                    </button>
+                </div>
+            )}
+
+            {searchResultTags.length > 0 && !selectedTag && (
+                <div className={style.tagSuggestions}>
+                    {searchResultTags.map(tag => (
+                        <button
+                            key={tag}
+                            className={style.tagButton}
+                            onClick={() => {
+                                setSelectedTag(tag);
+                                setSearchQuery('');
+                            }}
+                        >
+                            #{tag}
+                        </button>
+                    ))}
+                </div>
+            )}
+
+            <List
+                list={displayedTasks}
+                onRemove={removeTask}
+                onUpdate={updateTask}
+                onToggleComplete={toggleComplete}
+            />
         </div>
     );
 }

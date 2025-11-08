@@ -20,3 +20,43 @@
     color: var(--bg);
     border: none;
 }
+
+
+.tagSuggestions {
+    width: 80%;
+    margin: 10px auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tagButton {
+    padding: 4px 5px;
+    background-color: var(--text);
+    border: 1px solid gray;
+    color: var(--bg);
+    border-radius: 15px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.activeTag {
+    margin: 10px 0;
+    font-size: 14px;
+    color: var(--bg);
+}
+
+.activeTag .tagButton {
+    background-color: white;
+    color: black;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchDelete {
+    width: 20px;
+    height: 20px;
+}
