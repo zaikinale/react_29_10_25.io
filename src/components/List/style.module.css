@@ -43,6 +43,7 @@
     font-size: 14px;
     padding: 10px 20px;
     background-color: rgb(124, 255, 124);
+    opacity: 0.5;
 }
 
 .list__item--overdue {
@@ -98,10 +99,17 @@
 
 .editor__input {
     display: block;
-    margin: 4px 0;
-    padding: 6px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    max-width: 90%;
+    padding: 5px;
+    margin: 2px;
+    border: 2px solid gray;
+    border-radius: 5px;
+    background-color: var(--text);
+    color: var(--bg);
+
+}
+.editor__input::placeholder {
+    color: var(--bg);
 }
 
 .btnControl {

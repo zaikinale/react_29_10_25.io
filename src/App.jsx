@@ -5,7 +5,6 @@ import TaskManager from './components/TaskManager/TaskManager.jsx';
 
 function App() {
     const [darkMode, setDarkMode] = useState(() => {
-        // Сохраняем выбор пользователя между сессиями
         return localStorage.getItem('darkMode') === 'true';
     });
 
