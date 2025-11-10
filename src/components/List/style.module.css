@@ -125,3 +125,30 @@
     width: 19px;
     object-fit: cover;
 }
+
+@media (max-width: 1100px) {
+    .list {
+        column-count: 5;
+    }
+}
+
+@media (max-width: 800px) {
+    .list {
+
+        column-count: 3;
+    }
+}
+
+@media (max-width: 500px) {
+    .list {
+
+        column-count: 2;
+    }
+}
+
+@media (max-width: 300px) {
+    .list {
+
+        column-count: 1;
+    }
+}
