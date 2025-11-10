@@ -42,8 +42,7 @@ export default function TaskManager() {
                 )
                 .flatMap(task => task.tags || [])
                 .filter(tag => tag.trim() !== '')
-          )]
-        : [];
+        )]: [];
 
     const addTask = (text, deadline, tags) => {
         const newId = tasks.length + 1;
