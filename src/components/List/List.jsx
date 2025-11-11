@@ -11,11 +11,11 @@ const Item = ({ item, onRemove, onUpdate, onToggleComplete }) => {
     const [isEditing, setIsEditing] = useState(false);
     const [editText, setEditText] = useState(item.text);
     const [editDeadline, setEditDeadline] = useState(item.deadline || '');
-    const [editTags, setEditTags] = useState(item.tags?.join(', ') || '');
+    const [editTags, setEditTags] = useState(item.tags?.join(' #') || '');
 
     const handleSave = () => {
         const tags = editTags
-            .split(',')
+            .split('#')
             .map(tag => tag.trim())
             .filter(tag => tag);
         onUpdate(item.id, {
@@ -29,7 +29,7 @@ const Item = ({ item, onRemove, onUpdate, onToggleComplete }) => {
     const handleEdit = () => {
         setEditText(item.text);
         setEditDeadline(item.deadline || '');
-        setEditTags(item.tags?.join(', ') || '');
+        setEditTags(item.tags?.join(' #') || '');
         setIsEditing(true);
     };
 
@@ -83,7 +83,7 @@ const Item = ({ item, onRemove, onUpdate, onToggleComplete }) => {
                 type="text"
                 value={editTags}
                 onChange={(e) => setEditTags(e.target.value)}
-                placeholder="Теги (через запятую)"
+                placeholder="Теги (через #)"
                 className={style.editor__input}
             />
             <div className={style.btnControl}>
