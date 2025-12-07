@@ -1,4 +1,5 @@
 import style from './style.module.css';
+import SearchIcon from '../../assets/search.svg'
 
 export default function CalendarHeader () {
     return (
@@ -13,7 +14,7 @@ export default function CalendarHeader () {
             </div>
             <div className={style.searchAndSelect}>
                 <button className={style.searchBtn}>
-                    <img src="" alt="Поиск"/>
+                    <img src={SearchIcon} alt="Поиск"/>
                 </button>
                 <select name="select" className={style.selectDate}>
                     <option value="day" selected>День</option>
