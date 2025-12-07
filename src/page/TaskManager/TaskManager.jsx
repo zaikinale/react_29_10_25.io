@@ -1,21 +1,17 @@
-import { useState, useEffect } from "react";
-import List from '../List/List.jsx';
-import TaskAddFrom from '../TaskAddFrom/TaskAddFrom.jsx';
+import List from '../../components/List/List.jsx';
+import TaskAddFrom from '../../components/TaskAddFrom/TaskAddFrom.jsx';
 import style from './style.module.css';
-import RemoveIcon from '../../assets/remove.svg'
+import RemoveIcon from '../../assets/remove.svg';
+import { useState }  from 'react'
+
+import useTaskStore from '../../store/useTasksStore.js';
 
 export default function TaskManager() {
-    const [tasks, setTasks] = useState(() => {
-        const saved = localStorage.getItem('tasks');
-        return saved ? JSON.parse(saved) : [];
-    });
+    const tasks = useTaskStore(state => state.tasks);
+    // const addTask = useTaskStore(state => state.addTask);
 
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedTag, setSelectedTag] = useState(null);
-
-    useEffect(() => {
-        localStorage.setItem('tasks', JSON.stringify(tasks));
-    }, [tasks]);
 
     let displayedTasks;
     if (selectedTag) {
@@ -42,44 +38,17 @@ export default function TaskManager() {
                 )
                 .flatMap(task => task.tags || [])
                 .filter(tag => tag.trim() !== '')
-        )]: [];
-
-    const addTask = (text, deadline, tags) => {
-        const newId = tasks.length + 1;
-        setTasks(prev => [...prev, {
-            id: newId,
-            text: text.trim(),
-            status: 'active',
-            deadline: deadline || null,
-            tags: tags || []
-        }]);
-    };
-
-    const removeTask = (id) => {
-        setTasks(prev => prev.filter(task => task.id !== id));
-    };
-
-    const updateTask = (id, updates) => {
-        setTasks(prev =>
-            prev.map(task => task.id === id ? { ...task, ...updates } : task)
-        );
-    };
-
-    const toggleComplete = (id) => {
-        setTasks(prev =>
-            prev.map(task => {
-                if (task.id !== id) return task;
-                return {
-                    ...task,
-                    status: task.status === 'completed' ? 'active' : 'completed'
-                };
-            })
-        );
-    };
+        )]
+        : [];
+    //
+    // const handleAddTask = (text, deadline, tags) => {
+    //     addTask(text, deadline, tags);
+    // };
 
     return (
         <div className={style.section}>
-            <TaskAddFrom onAdd={addTask} />
+            {/*<TaskAddFrom onAdd={handleAddTask} />*/}
+
             <input
                 type="text"
                 placeholder="Поиск по названию/тегу..."
@@ -89,7 +58,7 @@ export default function TaskManager() {
                     setSelectedTag(null);
                 }}
                 className={style.search}
-            /> 
+            />
 
             {selectedTag && (
                 <div className={style.activeTag}>
@@ -98,7 +67,7 @@ export default function TaskManager() {
                         onClick={() => setSelectedTag(null)}
                     >
                         #{selectedTag}
-                        <img className={style.searchDelete} src={RemoveIcon} alt='Удалить' />
+                        <img className={style.searchDelete} src={RemoveIcon} alt="Удалить" />
                     </button>
                 </div>
             )}
@@ -122,9 +91,9 @@ export default function TaskManager() {
 
             <List
                 list={displayedTasks}
-                onRemove={removeTask}
-                onUpdate={updateTask}
-                onToggleComplete={toggleComplete}
+                onRemove={useTaskStore(state => state.removeTask)}
+                onUpdate={useTaskStore(state => state.updateTask)}
+                onToggleComplete={useTaskStore(state => state.toggleComplete)}
             />
         </div>
     );

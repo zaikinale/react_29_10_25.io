@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import Header from './components/Header/index.jsx';
-import TaskManager from './components/TaskManager/TaskManager.jsx';
+import TaskManager from './page/TaskManager/TaskManager.jsx';
+import AddBlock from "./components/AddBlock/index.jsx";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
     const [darkMode, setDarkMode] = useState(() => {
@@ -22,10 +24,24 @@ function App() {
     };
 
     return (
-        <>
-            <Header darkMode={darkMode} onToggleTheme={toggleTheme} />
-            <TaskManager darkMode={darkMode} />
-        </>
+        <div className={'containerApp'}>
+            <BrowserRouter>
+                <Header darkMode={darkMode} onToggleTheme={toggleTheme} />
+                <Routes>
+                    <Route
+                        index
+                        element={
+                            <TaskManager darkMode={darkMode} />
+                        }
+                    />
+
+
+                    </ Routes>
+                <AddBlock ></AddBlock>
+            </ BrowserRouter>
+
+
+        </div>
     );
 }
 

@@ -1,0 +1,22 @@
+.addContainer {
+    min-width: 100%;
+    position: absolute;
+    bottom: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.addBtn {
+    /*position: absolute;*/
+    /*bottom: 10px;*/
+    padding: 20px 25px;
+    border-radius:  10px;
+    margin: 0;
+    background-color: var(--border);
+    color: var(--text);
+}
+
+.imgClose {
+    width: 10px;
+    height: 10px;
+}

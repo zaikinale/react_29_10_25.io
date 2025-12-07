@@ -1,4 +1,5 @@
 import style from './style.module.css';
+import { NavLink } from 'react-router-dom'
 import LogoBlackIcon from './logo-black.jpg';
 import LogoWhiteIcon from './logo-white.jpeg';
 
@@ -18,10 +19,42 @@ const Header = ({ darkMode, onToggleTheme }) => {
             </a>
             <nav className={style.navigation}>
                 <ul className={style.navigation__list}>
-                    <li><a className={style.navigation__link} href="">О нас</a></li>
-                    <li><a className={style.navigation__link} href="">О вас</a></li>
-                    <li><a className={style.navigation__link} href="">Кавказ</a></li>
-                    <li><a className={style.navigation__link} href="">За нас</a></li>
+                    <li>
+                        <NavLink
+                            to={'/'}
+                            className={style.navigation__link}
+                        >
+                            {'Заметки'}
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink
+                            to={'/calendar'}
+                            className={style.navigation__link}
+                        >
+                            {'Календарь'}
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink
+                            to={'/tables'}
+                            className={style.navigation__link}
+                        >
+                            {'Таблицы'}
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink
+                            to={'/analitic'}
+                            className={style.navigation__link}
+                        >
+                            {'Аналитика'}
+                        </NavLink>
+                    </li>
+                    {/*<li><a className={style.navigation__link} href="">Заметки</a></li>*/}
+                    {/*<li><a className={style.navigation__link} href="">Календарь</a></li>*/}
+                    {/*<li><a className={style.navigation__link} href="">Таблицы</a></li>*/}
+                    {/*<li><a className={style.navigation__link} href="">Аналитика</a></li>*/}
                 </ul>
             </nav>
             <button
