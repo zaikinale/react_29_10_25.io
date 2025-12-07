@@ -16,6 +16,7 @@ export default function AddBlock() {
 
     return (
         <div className={style.addContainer}>
+            <button className={style.addBtn}>?</button>
             {isFormVisible && <TaskAddForm onAdd={addTask} />}
 
             <button

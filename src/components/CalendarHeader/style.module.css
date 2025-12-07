@@ -1,0 +1,50 @@
+.headerContainer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.monthAndToday {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.control {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.backBtn, .nextBtn {
+
+}
+
+.onToday {
+
+}
+
+.thisMonth {
+    margin-left: 10px;
+}
+
+.searchAndSelect {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.searchBtn {
+
+}
+
+.selectDate {
+    font-size: 1em;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    background-color: #1a1a1a;
+}
+
