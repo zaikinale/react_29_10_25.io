@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    padding-top: 20px;
+    padding-top: 16px;
     gap: 10px;
 }
 
@@ -19,7 +19,7 @@
     flex-direction: column;
     align-items: flex-end;
     gap: 26px;
-    height: 600px;
+    height: 720px;
     overflow: scroll;
 }
 
