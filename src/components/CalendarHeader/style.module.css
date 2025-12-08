@@ -12,6 +12,19 @@
 
 }
 
+.searchInput {
+    border: none;
+    width: 200px;
+    padding: 14px;
+    border-radius: 10px;
+    background-color: transparent;
+    color: var(--text);
+}
+
+.searchInput::placeholder {
+    color: var(--text);
+}
+
 .control {
     display: flex;
     align-items: center;
