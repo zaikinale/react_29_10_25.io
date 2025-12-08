@@ -3,8 +3,10 @@ import { NavLink } from 'react-router-dom'
 import LogoBlackIcon from './logo-black.jpg';
 import LogoWhiteIcon from './logo-white.jpeg';
 
-import DayModeIcon from '../../assets/day_mode.svg'
-import NightModeIcon from '../../assets/night_mode.svg'
+import  ProfileLogo from '../../assets/media/icons/accountUnActive.svg'
+
+import DayModeIcon from '../../assets/media/icons/day_mode.svg'
+import NightModeIcon from '../../assets/media/icons/night_mode.svg'
 
 const Header = ({ darkMode, onToggleTheme }) => {
     return (
@@ -57,12 +59,19 @@ const Header = ({ darkMode, onToggleTheme }) => {
                     {/*<li><a className={style.navigation__link} href="">Аналитика</a></li>*/}
                 </ul>
             </nav>
-            <button
-                onClick={onToggleTheme}
-                className={style.theme_btn}
-            >
-                <img className={style.theme__img} src={darkMode ? DayModeIcon : NightModeIcon} alt={darkMode ? 'Cветлая тема' : 'Темная тема'} />
-            </button>
+
+            <div className={style.controlBtn}>
+                <button
+                    onClick={onToggleTheme}
+                    className={style.theme_btn}
+                >
+                    <img className={style.theme__img} src={darkMode ? DayModeIcon : NightModeIcon} alt={darkMode ? 'Cветлая тема' : 'Темная тема'} />
+                </button>
+
+                <button className={style.profile_btn}>
+                    <img className={style.profile__img} src={ProfileLogo} alt={'Профиль'} />
+                </button>
+            </div>
         </header>
     );
 };

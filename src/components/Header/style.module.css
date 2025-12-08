@@ -12,6 +12,11 @@
     border-bottom: 2px solid gray;
 }
 
+.controlBtn {
+    display: flex;
+    gap: 10px;
+}
+
 .header_dark {
     background-color: black;
 
@@ -49,6 +54,23 @@
     height: initial;
     object-fit: contain;
 }
+
+.profile_btn {
+    background-color: var(--text);
+    padding: 5px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile__img {
+    max-width: 100%;
+    height: initial;
+    object-fit: cover;
+}
+
 
 .navigation {
     display: flex;

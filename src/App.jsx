@@ -5,6 +5,7 @@ import TaskManager from './page/TaskManager/TaskManager.jsx';
 import Calendar from './page/Calendar/index.jsx'
 import AddBlock from "./components/AddBlock/index.jsx";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import {TypeProvider } from './context/useContextCalendar.jsx'
 
 function App() {
     const [darkMode, setDarkMode] = useState(() => {
@@ -25,6 +26,7 @@ function App() {
     };
 
     return (
+        <TypeProvider>
         <div className={'containerApp'}>
             <BrowserRouter>
                 <Header darkMode={darkMode} onToggleTheme={toggleTheme} />
@@ -49,6 +51,7 @@ function App() {
 
 
         </div>
+        </TypeProvider >
     );
 }
 

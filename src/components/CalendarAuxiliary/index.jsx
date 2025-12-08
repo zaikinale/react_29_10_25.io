@@ -1,7 +1,10 @@
 import style from './style.module.css'
+import {useType} from "../../context/useContextCalendar.jsx";
 
-export default function CalendarAuxiliaty ({mode}) {
-    if(mode === 'week') {
+export default function CalendarAuxiliaty () {
+    const { typeQuery }= useType();
+
+    if(typeQuery === 'week') {
         return (
             <section className={style.auciliatyContainer}>
                 <div className={style.paperMonth}>

@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import style from './style.module.css';
 
-import AlterIcon from '../../assets/alter.svg'
-import CheckIcon from '../../assets/check.svg'
-import RemoveIcon from '../../assets/remove.svg'
-import SaveIcon from '../../assets/save.svg'
-import TrashIcon from '../../assets/trash.svg'
+import AlterIcon from '../../assets/media/icons/alter.svg'
+import CheckIcon from '../../assets/media/icons/check.svg'
+import RemoveIcon from '../../assets/media/icons/remove.svg'
+import SaveIcon from '../../assets/media/icons/save.svg'
+import TrashIcon from '../../assets/media/icons/trash.svg'
 
 const Item = ({ item, onRemove, onUpdate, onToggleComplete }) => {
     const [isEditing, setIsEditing] = useState(false);

@@ -8,8 +8,8 @@
 }
 
 .paperMonth {
-    width: 150px;
-    height: 160px;
+    width: 140px;
+    height: 130px;
     background-color: var(--border);
     border-radius: 10px;
 }

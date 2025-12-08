@@ -2,7 +2,7 @@ import style from './style.module.css';
 import TaskAddForm from "../TaskAddFrom/TaskAddFrom.jsx";
 import { useState } from 'react';
 import useTaskStore from "../../store/useTasksStore.js";
-import RemoveIcon from '../../assets/remove.svg'
+import RemoveIcon from '../../assets/media/icons/remove.svg'
 
 export default function AddBlock() {
     const tasks = useTaskStore(state => state.tasks);

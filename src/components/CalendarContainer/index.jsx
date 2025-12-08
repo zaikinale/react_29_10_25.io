@@ -1,4 +1,5 @@
 import style from './style.module.css';
+import {useType} from "../../context/useContextCalendar.jsx";
 
 const weekData = [
     { abbr: 'ПН', date: 1 },
@@ -10,9 +11,10 @@ const weekData = [
     { abbr: 'ВС', date: 7 }
 ];
 
-export default function CalendarContainer({ mode }) {
+export default function CalendarContainer() {
+    const { typeQuery }= useType();
 
-    if(mode === 'week') {
+    if(typeQuery === 'week') {
         return (
             <section className={style.datasContainerWeek}>
                 <div className={style.containerHeader}>

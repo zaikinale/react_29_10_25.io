@@ -16,15 +16,11 @@
 }
 
 .weekItem {
-
+    width: 100%;
 }
 
-.weekItemTitle {
-
-}
-
-.weekItemDate {
-
+.weekItemTitle, .weekItemDate {
+    margin: 5px;
 }
 
 .containerWeek {

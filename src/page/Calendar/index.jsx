@@ -5,12 +5,12 @@ import CalendarAuxiliaty from "../../components/CalendarAuxiliary/index.jsx";
 
 export default function Calendar () {
         return (
-            <div className={style.content}>
-                <CalendarAuxiliaty mode={'week'}></CalendarAuxiliaty>
-                <div className={style.mainContent}>
-                    <CalendarHeader></CalendarHeader>
-                    <CalendarContainer mode={'week'}></CalendarContainer>
+                <div className={style.content}>
+                    <CalendarAuxiliaty></CalendarAuxiliaty>
+                    <div className={style.mainContent}>
+                        <CalendarHeader></CalendarHeader>
+                        <CalendarContainer></CalendarContainer>
+                    </div>
                 </div>
-            </div>
         )
 }

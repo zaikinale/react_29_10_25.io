@@ -1,7 +1,7 @@
 import List from '../../components/List/List.jsx';
 import TaskAddFrom from '../../components/TaskAddFrom/TaskAddFrom.jsx';
 import style from './style.module.css';
-import RemoveIcon from '../../assets/remove.svg';
+import RemoveIcon from '../../assets/media/icons/remove.svg';
 import { useState }  from 'react'
 
 import useTaskStore from '../../store/useTasksStore.js';

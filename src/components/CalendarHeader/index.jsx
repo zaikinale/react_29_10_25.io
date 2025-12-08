@@ -1,7 +1,14 @@
 import style from './style.module.css';
-import SearchIcon from '../../assets/search.svg'
+import SearchIcon from '../../assets/media/icons/search.svg'
+import {useType} from "../../context/useContextCalendar.jsx";
 
 export default function CalendarHeader () {
+    const { typeQuery, setTypeQuery }= useType();
+
+    const handleChange = (e) => {
+        setTypeQuery(e.target.value);
+    };
+
     return (
         <section className={style.headerContainer}>
             <div className={style.monthAndToday}>
@@ -16,9 +23,9 @@ export default function CalendarHeader () {
                 <button className={style.searchBtn}>
                     <img src={SearchIcon} alt="Поиск"/>
                 </button>
-                <select name="select" className={style.selectDate}>
-                    <option value="day" selected>День</option>
-                    <option value="week">Неделя</option>
+                <select name="select" className={style.selectDate} onChange={handleChange}>
+                    <option value="day">День</option>
+                    <option value="week" selected >Неделя</option>
                     <option value="month">Месяц</option>
                     <option value="year">Год</option>
                 </select>
